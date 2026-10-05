@@ -1,0 +1,85 @@
+Hiperlinks
+Os hiperlinks conectam documentos, páginas, arquivos e partes específicas de uma página. Eles são uma das principais características da Web.
+
+A estrutura básica é:
+
+xml
+<a href="https://www.example.com">Acessar site</a>
+<a> significa âncora.
+
+href indica o destino do link.
+
+O conteúdo entre as tags é a parte clicável.
+
+Link externo
+xml
+<a href="https://www.google.com">
+  Acessar o Google
+</a>
+Use o protocolo completo:
+
+xml
+https://
+Link para arquivo no mesmo diretório
+Se os arquivos estiverem assim:
+
+text
+site/
+├── index.html
+└── contato.html
+No index.html:
+
+xml
+<a href="contato.html">Contato</a>
+Link para subdiretório
+text
+site/
+├── index.html
+└── paginas/
+    └── sobre.html
+O link será:
+
+xml
+<a href="paginas/sobre.html">Sobre</a>
+Subir um diretório
+Se o arquivo atual estiver dentro de uma pasta e precisar acessar um arquivo acima:
+
+xml
+<a href="../index.html">Página inicial</a>
+O símbolo .. significa subir um nível na estrutura de diretórios.
+
+Link para uma parte da mesma página
+Primeiro, coloque um id no destino:
+
+xml
+<h2 id="metadados">Metadados</h2>
+Depois, crie o link:
+
+xml
+<a href="#metadados">Ir para metadados</a>
+O símbolo # indica que o destino é um fragmento identificado por id.
+
+Link para uma parte de outra página
+xml
+<a href="html.html#metadados">
+  Ver seção de metadados
+</a>
+Link de e-mail
+xml
+<a href="mailto:pedro@example.com">
+  Enviar e-mail
+</a>
+Ao clicar, o navegador pode abrir o programa de e-mail do usuário.
+
+Menu de navegação
+Um menu pode ser criado utilizando uma lista não ordenada:
+
+xml
+<nav>
+  <ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+</nav>
+Essa estrutura é semanticamente adequada porque o menu representa uma lista de links.
