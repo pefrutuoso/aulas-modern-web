@@ -1,0 +1,44 @@
+Efeitos semânticos no texto
+O HTML possui elementos que dão significado ao texto, e não apenas aparência. Isso é importante para acessibilidade, SEO e interpretação correta por leitores de tela.
+
+
+
+Ênfase com *em*
+Use <em> quando determinada palavra ou trecho deve receber ênfase:
+<p>
+  Eu <em>realmente</em> preciso estudar HTML.
+</p>
+Normalmente, o navegador exibe o conteúdo em itálico, mas o objetivo principal é semântico: indicar ênfase.
+
+
+
+Importância com *strong*
+Use <strong> para indicar conteúdo importante:
+<p>
+  <strong>Atenção:</strong> salve os arquivos antes de fechar o editor.
+</p>
+
+Normalmente, o navegador exibe o texto em negrito.
+
+b, i e u
+Os elementos abaixo representam efeitos tradicionalmente visuais:
+
+<b>Texto em destaque visual</b>
+<i>Termo em itálico</i>
+<u>Texto sublinhado</u>
+Porém, não devem ser escolhidos apenas pela aparência quando existe um elemento semântico mais adequado.
+
+
+Regra prática:
+Elemento	Uso principal
+<strong>	Importância forte.
+<em>	    Ênfase semântica.
+<b>	        Destaque visual ou atenção sem importância especial.
+<i>	        Termos técnicos, palavras estrangeiras ou texto em estilo diferente.
+<u>	        Texto com significado tradicional de sublinhado, como marcação específica.
+<span>	    Agrupamento neutro para CSS ou JavaScript.
+
+    Exemplo:
+<p>
+  O elemento <strong>HTML</strong> é essencial no desenvolvimento web.
+</p>
