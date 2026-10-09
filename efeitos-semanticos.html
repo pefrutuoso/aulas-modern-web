@@ -20,21 +20,27 @@ Use <strong> para indicar conteúdo importante:
 
 Normalmente, o navegador exibe o texto em negrito.
 
+
+
 b, i e u
 Os elementos abaixo representam efeitos tradicionalmente visuais:
-
 <b>Texto em destaque visual</b>
 <i>Termo em itálico</i>
 <u>Texto sublinhado</u>
+
 Porém, não devem ser escolhidos apenas pela aparência quando existe um elemento semântico mais adequado.
+
 
 
 Abreviações:
 <p>Usamos <abbr title="Hypertext Markup Language">HTML</abbr> para estruturar nossos documentos da web</p>
 
 
+
 Marcando detalhes de contato:
 <address>Pedro Henrique, Franca, SP </address>
+
+
 
 Quebra de linha
 <p>
@@ -43,43 +49,57 @@ Quebra de linha
 </p>
 Use <br> somente quando a quebra fizer parte do significado do conteúdo, como em endereços ou poemas. Para espaçamento visual, prefira CSS.
 
+
+
 Regra horizontal
-xml
 <hr>
 Representa uma mudança de assunto ou separação temática.
 
+
+
 Abreviações
-xml
 <abbr title="HyperText Markup Language">HTML</abbr>
 O atributo title fornece a forma completa da abreviação.
 
+
+
 Data ou horário
-xml
-<time datetime="2026-10-05">
-  5 de outubro de 2026
-</time>
+<time datetime="2026-10-05"> 5 de outubro de 2026 </time>
 O texto é compreensível para o usuário e o atributo datetime fornece um formato legível por máquinas.
 
-Código de computador
-xml
-<p>
-  Use a função <code>print()</code> em Python.
-</p>
-Para blocos de código:
 
-xml
+
+
+Código de computador
+<pre>
+  <code> var parar = document.querySelector('p');
+
+      parar.onCLick = function(){;
+          alert("Oww, stop poking me!")
+      }
+  </code>
+</pre>
+
+
+
+Para blocos de código:
 <pre>
 function saudacao() {
   console.log("Olá!");
 }
 </pre>
+
+
+
 Sobrescrito e subscrito
-xml
 <p>Água: H<sub>2</sub>O</p>
 <p>Área: 10<sup>2</sup></p>
-<sub> cria texto subscrito.
 
+<sub> cria texto subscrito.
 <sup> cria texto sobrescrito.
+
+
+
 
 Regra prática:
 Elemento	Uso principal
