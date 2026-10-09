@@ -1,0 +1,222 @@
+IMAGENS
+
+A tag principal é <img>. Ela é um elemento vazio: não possui tag de fechamento nem conteúdo interno, porque a própria tag insere a imagem no local onde aparece.
+
+<img src="imagens/foto.png" alt="Foto de um carro de bombeiros">
+
+Atributos principais
+| Atributo | Função                      | Exemplo                             |
+| -------- | --------------------------- | ----------------------------------- |
+| src      | Define o caminho da imagem  | src="imagens/foto.png"              |
+| alt      | Descrição textual da imagem | alt="Foto de um carro de bombeiros" |
+| width    | Largura da imagem           | width="400"                         |
+| height   | Altura da imagem            | height="300"                        |
+
+O atributo src pode usar um caminho relativo, como imagens/foto.png, ou uma URL completa, como https://site.com/foto.png. Em projetos próprios, o mais comum é manter as imagens no mesmo servidor/site que o HTML.
+
+
+Por que usar alt?
+O alt é essencial para acessibilidade. Ele é lido por leitores de tela para pessoas com deficiência visual e também aparece quando a imagem não carrega, quando o caminho está errado ou quando o usuário desativou imagens para economizar dados.
+
+
+Exemplo ruim:
+<img src="imagens/carro.png" alt="Imagem">
+
+
+Exemplo melhor:
+<img src="imagens/carro.png" alt="Carro de bombeiros vermelho estacionado em frente à unidade">
+
+
+Tamanho da imagem
+
+Você pode definir tamanho diretamente no HTML(mas não é usual, pois distorce a imagem):
+<img src="imagens/carro.png" alt="Carro de bombeiros" width="400" height="300">
+
+Ou usar CSS, que é a forma mais recomendada para separar estrutura e aparência:
+img {
+  width: 400px;
+  height: auto;
+}
+Usar height: auto ajuda a manter a proporção original da imagem quando você altera apenas a largura.
+
+
+Imagem com legenda
+Quando a imagem faz parte de um conteúdo explicativo, use figure e figcaption:
+
+<figure>
+  <img src="imagens/equipe.png" alt="Equipe de bombeiros durante treinamento">
+  <figcaption>Treinamento da equipe em campo.</figcaption>
+</figure>
+
+O figcaption informa ao navegador e às tecnologias assistivas que aquela legenda descreve o conteúdo do figure.
+
+
+Formatos de imagem
+| Formato       | Melhor uso                                |
+| ------------- | ----------------------------------------- |
+| .jpg ou .jpeg | Fotos com muitas cores e detalhes         |
+| .png          | Imagens com transparência, logos e ícones |
+| .gif          | Animações simples                         |
+| .svg          | Ícones, logos e ilustrações vetoriais     |
+Imagens raster, como JPG, PNG e GIF, são formadas por pixels. Já imagens SVG são vetoriais: elas usam definições matemáticas de formas e continuam nítidas mesmo quando ampliadas.
+
+
+
+
+VÍDEOS
+
+Para inserir um vídeo, use a tag <video>:
+
+<video src="videos/treinamento.mp4" controls width="640" height="360">
+  Seu navegador não suporta a reprodução de vídeo.
+</video>
+
+O texto dentro da tag é o conteúdo alternativo: ele aparece apenas se o navegador não conseguir reproduzir o vídeo.
+
+Atributos do vídeo
+| Atributo | Função                                           | Exemplo                      |
+| -------- | ------------------------------------------------ | ---------------------------- |
+| src      | Caminho do arquivo de vídeo                      | src="videos/treinamento.mp4" |
+| controls | Exibe botões de play, pause, volume e tela cheia | controls                     |
+| width    | Largura do player                                | width="640"                  |
+| height   | Altura do player                                 | height="360"                 |
+| poster   | Imagem exibida antes de o vídeo começar          | poster="imagens/capa.jpg"    |
+| autoplay | Inicia automaticamente                           | autoplay                     |
+| loop     | Repete após terminar                             | loop                         |
+| muted    | Inicia sem som                                   | muted                        |
+| preload  | Define quanto do vídeo é carregado antes         | preload="metadata"           |
+
+O atributo controls é muito importante: o usuário deve conseguir iniciar, pausar e ajustar o volume do vídeo.
+
+
+Exemplo mais completo
+
+<video
+  src="videos/treinamento.mp4"
+  controls
+  width="640"
+  height="360"
+  poster="imagens/capa-treinamento.jpg"
+  preload="metadata">
+  Seu navegador não suporta vídeo HTML5.
+</video>
+
+Cuidados com autoplay
+Evite autoplay e loop sem necessidade. Eles podem irritar o usuário, consumir dados e prejudicar a experiência. Se usar autoplay, é uma boa prática combinar com muted, especialmente para vídeos decorativos.
+
+
+
+
+ÁUDIO
+
+Para inserir áudio, use a tag <audio>:
+<audio src="audios/podcast.mp3" controls>
+  Seu navegador não suporta a reprodução de áudio.
+</audio>
+
+O <audio> funciona de forma parecida com o <video>, mas não possui componente visual. Por isso, ele não usa width, height nem poster; apenas exibe os controles de reprodução.
+
+
+Atributos do áudio
+| Atributo | Função                        | Exemplo                  |
+| -------- | ----------------------------- | ------------------------ |
+| src      | Caminho do arquivo de áudio   | src="audios/podcast.mp3" |
+| controls | Exibe controles de reprodução | controls                 |
+| autoplay | Toca automaticamente          | autoplay                 |
+| loop     | Repete após terminar          | loop                     |
+| muted    | Inicia sem som                | muted                    |
+| preload  | Define o carregamento prévio  | preload="metadata"       |
+
+Exemplo:
+<audio
+  src="audios/podcast.mp3"
+  controls
+  preload="metadata">
+  Seu navegador não suporta áudio HTML5.
+</audio>
+
+
+Organização das pastas
+Uma estrutura recomendada é:
+
+meu-site/
+│
+├── index.html
+│
+├── imagens/
+│   ├── carro.png
+│   └── capa-treinamento.jpg
+│
+├── videos/
+│   └── treinamento.mp4
+│
+├── audios/
+│   └── podcast.mp3
+│
+├── estilos/
+│   └── estilo.css
+│
+└── scripts/
+    └── script.js
+
+Assim, os caminhos ficam organizados e fáceis de manter:
+
+<img src="imagens/carro.png" alt="Carro de bombeiros">
+
+<video src="videos/treinamento.mp4" controls></video>
+
+<audio src="audios/podcast.mp3" controls></audio>
+
+Exemplo completo
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mídias em HTML</title>
+</head>
+<body>
+  <h1>Imagens, vídeos e áudios</h1>
+
+  <h2>Imagem</h2>
+
+  <figure>
+    <img
+      src="imagens/carro.png"
+      alt="Carro de bombeiros vermelho"
+      width="500">
+    <figcaption>Veículo utilizado em atendimentos de emergência.</figcaption>
+  </figure>
+
+  <h2>Vídeo</h2>
+
+  <video
+    src="videos/treinamento.mp4"
+    controls
+    width="640"
+    height="360"
+    poster="imagens/capa-treinamento.jpg">
+    Seu navegador não suporta a reprodução de vídeo.
+  </video>
+
+  <h2>Áudio</h2>
+
+  <audio src="audios/podcast.mp3" controls>
+    Seu navegador não suporta a reprodução de áudio.
+  </audio>
+</body>
+</html>
+
+Boas práticas
+Sempre use alt em imagens.
+
+Use controls em vídeos e áudios.
+
+Evite reprodução automática de mídia.
+
+Comprima imagens e vídeos para o site carregar mais rápido.
+
+Use nomes de arquivos em minúsculas, sem espaços e com hífens, como treinamento-bombeiros.mp4.
+
+Prefira caminhos relativos e pastas organizadas.
+
+Só use conteúdo de terceiros, como vídeos do YouTube, se você tiver permissão ou se o conteúdo permitir incorporação.
