@@ -1,0 +1,18 @@
+div{
+    border: 2px dashed black;
+    padding: 15px;
+    margin: 10px;
+}
+p{
+    border: 10px solid green;
+    padding: 20px;
+    margin: 5px;
+}
+
+h1{
+    color: blueviolet;
+    background-color: #eee31a;
+    width: 1000px;
+    margin: 75px;
+    border: 20px solid blue;
+}
