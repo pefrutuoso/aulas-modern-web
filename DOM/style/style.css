@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 50px;
+    text-align: center;
+}
+
+#A{
+    height: 100%;
+    width: 50%;
+    background-color: red;
+    left: 0;
+    position: absolute;
+}
+
+#B{
+    height: 100%;
+    width: 50%;
+    background-color: blue;
+    left: 50%;
+    position: absolute;
+}
+
+.texto-branco{
+    color: white;
+}
