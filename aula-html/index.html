@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<!--
+  GUIA DE ESTUDOS: HTML
+  Disciplina: Modern Web
+  Aluno: Pedro Frutuoso
+
+  OBJETIVO
+  Reunir os assuntos de HTML em um único documento comentado.
+
+  COMO ESTUDAR
+  1. Leia os comentários no VS Code.
+  2. Abra este arquivo no navegador para visualizar os exemplos.
+  3. Altere um exemplo por vez e observe o resultado.
+  4. Use Ctrl + F para localizar um assunto ou uma tag.
+
+  IMPORTANTE
+  HTML é uma linguagem de marcação, não uma linguagem de programação.
+
+  HTML: estrutura e significado do conteúdo.
+  CSS: apresentação e layout.
+  JavaScript: lógica e interatividade. 
+
+  Um elemento normalmente contém:
+  tag de abertura + conteúdo + tag de fechamento.
+
+  Exemplo:
+  <p>Um parágrafo.</p>
+
+  Elementos vazios, como img, input, br, hr, meta e link,
+  não possuem conteúdo interno nem tag de fechamento.
+
+  Não coloque comentários HTML dentro de outros comentários.
+-->
+
+<!--
+  DOCTYPE
+  A declaração acima informa o tipo de documento e permite
+  que o navegador utilize o modo de padrões.
+  Não é uma tag de conteúdo.
+-->
+
+<!--
+  HTML
+  Elemento raiz que envolve o documento.
+
+  lang="pt-BR":
+  informa que o idioma principal é português do Brasil.
+  Ajuda leitores de tela e ferramentas de interpretação do conteúdo.
+-->
+<html lang="pt-BR">
+
+<!--
+  HEAD
+  Reúne informações sobre o documento, chamadas metadados.
+  Não é o cabeçalho visual da página: esse papel pode ser de header.
+-->
+<head>
+  <!-- Define a codificação de caracteres, permitindo acentos. -->
+  <meta charset="UTF-8">
+
+  <!--
+    VIEWPORT
+    Orienta a exibição em dispositivos móveis.
+    width=device-width: usa a largura do dispositivo.
+    initial-scale=1.0: define a escala inicial.
+    Não substitui um CSS responsivo.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Informa quem produziu o documento. -->
+  <meta name="author" content="Pedro Frutuoso">
+
+  <!-- Resumo do conteúdo da página. -->
+  <meta
+    name="description"
+    content="Guia comentado de HTML para estudos de Modern Web."
+  >
+
+  <!--
+    TITLE
+    Título do documento, usado na aba do navegador e nos favoritos.
+    É diferente do h1, que aparece no conteúdo da página.
+  -->
+  <title>Guia comentado de HTML — Modern Web</title>
+
+  <!--
+    FAVICON
+    Ícone da página.
+    Ative o exemplo depois de criar o arquivo correspondente.
+
+    <link rel="icon" href="imagens/favicon.png" type="image/png">
+  -->
+
+  <!--
+    CSS EXTERNO
+    rel="stylesheet": identifica uma folha de estilos.
+    href: caminho do arquivo.
+
+    <link rel="stylesheet" href="estilos/estilo.css">
+  -->
+
+  <!--
+    JAVASCRIPT EXTERNO
+    src: caminho do arquivo.
+    defer: adia a execução até o HTML ser analisado.
+
+    <script src="scripts/script.js" defer></script>
+  -->
+</head>
+
+<!-- BODY: contém o conteúdo apresentado ao usuário. -->
+<body id="inicio">
+
+  <!--
+    ============================================================
+    01. ESTRUTURA SEMÂNTICA E NAVEGAÇÃO
+    ============================================================
+
+    Semântica é o significado do elemento.
+
+    Escolha a tag pelo papel do conteúdo, não só pela aparência.
+    Um botão deve ser button, e não uma div que parece um botão.
+
+    CSS pode mudar a aparência sem mudar o significado da tag.
+  -->
+
+  <!-- HEADER: conteúdo introdutório da página ou de uma seção. -->
+  <header>
+    <!-- H1: título principal deste documento. -->
+    <h1>Guia comentado de HTML</h1>
+
+    <!-- P: representa um parágrafo. -->
+    <p>Material de consulta da disciplina Modern Web.</p>
+
+    <!-- NAV: agrupa os principais links de navegação. -->
+    <nav aria-label="Navegação pelos assuntos">
+      <!--
+        aria-label fornece um nome acessível à navegação.
+
+        UL: lista não ordenada.
+        LI: item da lista.
+        A: hiperlink.
+
+        href="#textos" leva ao elemento cujo id é textos.
+      -->
+      <ul>
+        <li><a href="#textos">Textos</a></li>
+        <li><a href="#listas">Listas</a></li>
+        <li><a href="#links">Links e caminhos</a></li>
+        <li><a href="#atributos">Atributos</a></li>
+        <li><a href="#imagens">Imagens</a></li>
+        <li><a href="#midias">Vídeos e áudios</a></li>
+        <li><a href="#incorporacao">Incorporação e SVG</a></li>
+        <li><a href="#tabelas">Tabelas</a></li>
+        <li><a href="#formularios">Formulários</a></li>
+        <li><a href="#indicadores">Progress e meter</a></li>
+        <li><a href="#semantica">Estrutura semântica</a></li>
+        <li><a href="#revisao">Revisão</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--
+    MAIN: conteúdo principal e específico desta página.
+    Neste documento existe um único main.
+  -->
+  <main>
+
+    <!--
+      SECTION: agrupa conteúdo de um mesmo assunto.
+      Geralmente deve possuir um título que identifique a seção.
+
+      id: identificador único no documento.
+    -->
+    <section id="textos">
+      <h2>02. Textos e significado</h2>
+
+      <!--
+        H1 A H6
+        Representam níveis de títulos, não tamanhos de fonte.
+
+        h1: título principal.
+        h2: seção principal.
+        h3: subseção de h2, e assim por diante.
+
+        Não escolha h4 apenas porque deseja uma letra pequena.
+        A aparência deve ser ajustada com CSS.
+      -->
+      <h3>Títulos e parágrafos</h3>
+
+      <p>Este é um parágrafo de exemplo.</p>
+      <p>Este é outro parágrafo, separado estruturalmente do anterior.</p>
+
+      <!--
+        STRONG: indica importância.
+        EM: indica ênfase.
+
+        Normalmente aparecem em negrito e itálico, mas o principal
+        é o significado, não a aparência.
+      -->
+      <p>
+        <strong>Atenção:</strong>
+        leia as instruções <em>antes</em> de continuar.
+      </p>
+
+      <!--
+        B: chama atenção para um trecho sem indicar importância extra.
+        I: destaca uma expressão em outra voz, termo técnico etc.
+        U: anotação não textual, como indicação de erro ortográfico.
+
+        Para efeitos puramente visuais, use CSS.
+      -->
+      <p>Palavra-chave: <b>HTML</b>.</p>
+      <p>O termo <i lang="en">frontend</i> aparece nas aulas.</p>
+      <p>Exemplo de grafia a revisar: <u>excessão</u>.</p>
+
+      <!-- MARK: marca um trecho relevante no contexto atual. -->
+      <p>O assunto pesquisado foi <mark>formulários</mark>.</p>
+
+      <!--
+        DEL: conteúdo removido.
+        INS: conteúdo inserido.
+      -->
+      <p>Prazo: <del>segunda-feira</del> <ins>terça-feira</ins>.</p>
+
+      <!-- SMALL: observações secundárias, avisos e letras miúdas. -->
+      <p><small>Exemplo acadêmico, sem finalidade comercial.</small></p>
+
+      <!-- SUB: subscrito. SUP: sobrescrito. -->
+      <p>Fórmula da água: H<sub>2</sub>O.</p>
+      <p>Potência: 2<sup>3</sup> = 8.</p>
+
+      <!--
+        BR: quebra de linha dentro do mesmo conteúdo.
+        Não use vários br para criar espaçamentos de layout.
+      -->
+      <p>
+        Primeira linha de um endereço.<br>
+        Segunda linha do endereço.
+      </p>
+
+      <!--
+        WBR: sugere uma oportunidade de quebra.
+        Só haverá quebra se o navegador precisar.
+      -->
+      <p>Nome extenso: desenvolvimento<wbr>web<wbr>moderno.</p>
+
+      <!--
+        HR: separação temática.
+        Costuma aparecer como linha horizontal.
+      -->
+      <hr>
+
+      <h3>Citações, abreviações e datas</h3>
+
+      <!-- ABBR: identifica abreviação; title informa sua expansão. -->
+      <p>
+        <abbr title="HyperText Markup Language">HTML</abbr>
+        estrutura o conteúdo.
+      </p>
+
+      <!-- Q: citação curta dentro do texto. -->
+      <p>Mensagem de exemplo: <q>Estude e pratique.</q></p>
+
+      <!--
+        BLOCKQUOTE: citação em bloco.
+        CITE: título de uma obra, não o nome de seu autor.
+      -->
+      <blockquote>
+        <p>Trecho fictício usado para demonstrar uma citação.</p>
+      </blockquote>
+      <p>Obra de exemplo: <cite>Manual de estudos de HTML</cite>.</p>
+
+      <!--
+        TIME: representa uma data ou horário.
+        datetime: representação padronizada para máquinas.
+      -->
+      <p>
+        Aula:
+        <time datetime="2026-10-16">16 de outubro de 2026</time>,
+        às <time datetime="12:53">12h53</time>.
+      </p>
+
+      <!--
+        ADDRESS: informações de contato do responsável pela página
+        ou pelo article mais próximo.
+        Não deve ser usado para qualquer endereço mencionado no texto.
+      -->
+      <address>
+        Responsável: Pedro Frutuoso.<br>
+        Material de estudos de Modern Web.
+      </address>
+
+      <h3>Código e caracteres especiais</h3>
+
+      <!-- CODE: identifica um trecho de código. -->
+      <p>Use <code>&lt;p&gt;</code> para marcar um parágrafo.</p>
+
+      <!--
+        PRE: preserva espaços e quebras de linha.
+        PRE + CODE: combinação comum para exemplos de código.
+
+        &lt; representa <
+        &gt; representa >
+        &amp; representa &
+        &quot; representa aspas duplas
+        &copy; representa o símbolo de copyright
+
+        Dentro de pre, tags não são automaticamente transformadas
+        em texto: precisamos escapar os sinais < dos exemplos.
+      -->
+      <pre><code>&lt;h1&gt;Meu título&lt;/h1&gt;
+&lt;p&gt;Meu parágrafo.&lt;/p&gt;</code></pre>
+
+      <!-- KBD: entrada do usuário, como uma tecla ou comando. -->
+      <p>Para salvar, pressione <kbd>Ctrl</kbd> + <kbd>S</kbd>.</p>
+
+      <!-- SAMP: saída de um programa. -->
+      <p>Saída de exemplo: <samp>Arquivo salvo.</samp></p>
+
+      <!-- VAR: variável em código ou expressão matemática. -->
+      <p>A variável <var>total</var> representa a soma.</p>
+
+      <p>Símbolos: &lt; &gt; &amp; &quot; &copy;</p>
+
+      <!--
+        RUBY: associa uma anotação a um texto.
+        RT: texto da anotação, usado por exemplo para pronúncia.
+      -->
+      <p>Exemplo de anotação: <ruby>漢<rt>kan</rt></ruby>.</p>
+    </section>
+
+    <section id="listas">
+      <h2>03. Listas</h2>
+
+      <!-- UL: itens cuja sequência não é essencial. -->
+      <h3>Lista não ordenada</h3>
+      <ul>
+        <li>Editor de código</li>
+        <li>Navegador</li>
+        <li>Arquivos do projeto</li>
+      </ul>
+
+      <!-- OL: sequência com ordem significativa. -->
+      <h3>Lista ordenada</h3>
+      <ol>
+        <li>Criar o arquivo.</li>
+        <li>Escrever o HTML.</li>
+        <li>Salvar e testar.</li>
+      </ol>
+
+      <!--
+        type controla a numeração da lista ordenada.
+        Valores: 1, A, a, I ou i.
+        start define o número inicial.
+      -->
+      <ol type="A" start="3">
+        <li>Este item começa com C.</li>
+        <li>Este item continua com D.</li>
+      </ol>
+
+      <!-- Uma lista interna deve ficar dentro de um li. -->
+      <h3>Lista aninhada</h3>
+      <ul>
+        <li>
+          Frontend
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </li>
+        <li>Backend</li>
+      </ul>
+
+      <!--
+        DL: lista de termos e descrições.
+        DT: termo.
+        DD: descrição.
+      -->
+      <h3>Lista de descrição</h3>
+      <dl>
+        <dt>HTML</dt>
+        <dd>Linguagem de marcação.</dd>
+
+        <dt>CSS</dt>
+        <dd>Linguagem de folhas de estilo.</dd>
+
+        <dt>JavaScript</dt>
+        <dd>Linguagem de programação.</dd>
+      </dl>
+    </section>
+
+    <section id="links">
+      <h2>04. Links, âncoras e caminhos</h2>
+
+      <!--
+        A: cria um hiperlink quando possui href.
+        href: destino do link.
+      -->
+      <p><a href="#inicio">Voltar ao início deste documento</a></p>
+
+      <!--
+        URL absoluta: endereço completo.
+        target="_blank": abre em novo contexto, geralmente outra aba.
+        rel="noopener": impede acesso à página de origem por opener.
+      -->
+      <p>
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener"
+        >
+          Abrir GitHub em outra aba
+        </a>
+      </p>
+
+      <!--
+        CAMINHOS RELATIVOS — exemplos para adaptar:
+
+        contato.html
+        Arquivo na mesma pasta.
+
+        paginas/contato.html
+        Arquivo dentro da subpasta paginas.
+
+        ../index.html
+        Sobe uma pasta e procura index.html.
+
+        ../imagens/foto.jpg
+        Sobe uma pasta e entra na pasta imagens.
+
+        Use barras / nos caminhos de URL.
+        Confira maiúsculas, minúsculas e extensão.
+
+        <a href="contato.html">Contato</a>
+      -->
+
+      <!--
+        LINKS ESPECIAIS — exemplos:
+        mailto abre o aplicativo de e-mail configurado.
+        tel pode iniciar uma chamada em dispositivos compatíveis.
+
+        <a href="mailto:contato@example.com">Enviar e-mail</a>
+        <a href="tel:+5500000000000">Telefonar</a>
+
+        DOWNLOAD — indica intenção de baixar um recurso.
+        O funcionamento depende também da origem e do servidor.
+
+        <a href="documentos/resumo.pdf" download>Baixar resumo</a>
+      -->
+
+      <p>Use textos claros nos links, como “Consultar formulários”.</p>
+    </section>
+
+    <section id="atributos">
+      <h2>05. Atributos e agrupadores</h2>
+
+      <!--
+        ATRIBUTOS adicionam informações ao elemento.
+
+        id:
+        identificador único; usado por âncoras, CSS e JavaScript.
+
+        class:
+        grupo reutilizável; permite várias classes no mesmo elemento.
+
+        title:
+        informação complementar; não substitui label ou alt.
+
+        lang:
+        idioma de um trecho.
+
+        data-*:
+        dados personalizados acessíveis por scripts.
+        Não armazene segredos em atributos HTML.
+      -->
+      <p
+        id="exemplo-atributos"
+        class="texto destaque"
+        title="Exemplo de informação complementar"
+        data-assunto="html"
+      >
+        Elemento com atributos.
+      </p>
+
+      <!--
+        DIV: agrupador genérico de conteúdo, sem significado próprio.
+        Seu comportamento padrão é de bloco.
+
+        SPAN: agrupador genérico de trechos, normalmente em linha.
+
+        Ambos podem mostrar conteúdo sem CSS.
+        Use-os quando não houver elemento semântico mais adequado.
+      -->
+      <div class="grupo-exemplo">
+        <p>Um grupo com uma <span class="palavra">palavra</span> marcada.</p>
+      </div>
+
+      <!-- HIDDEN: indica conteúdo que não deve ser apresentado. -->
+      <p hidden>Exemplo de conteúdo oculto.</p>
+
+      <!--
+        ATRIBUTOS BOOLEANOS
+        A presença do atributo ativa a condição.
+
+        Exemplos: required, disabled, checked, controls, multiple.
+
+        disabled="false" NÃO desativa o atributo:
+        ele continua presente e o campo continua desabilitado.
+        Para remover a condição, remova o atributo.
+      -->
+    </section>
+
+    <section id="imagens">
+      <h2>06. Imagens e legendas</h2>
+
+      <!--
+        FIGURE: conteúdo independente, como imagem com legenda.
+        Pode também conter código, gráficos, tabelas ou mídias.
+
+        IMG: incorpora uma imagem; não possui fechamento.
+        src: caminho.
+        alt: alternativa textual que comunica a função da imagem.
+        width e height: dimensões em pixels CSS.
+
+        Para uma imagem puramente decorativa, use alt="".
+        Não use title como substituto de alt.
+
+        O arquivo abaixo é um exemplo e precisa existir no projeto.
+      -->
+      <figure>
+        <img
+          src="imagens/treinamento.jpg"
+          alt="Equipe organizando equipamentos durante um treinamento"
+          width="480"
+          height="320"
+        >
+
+        <!-- FIGCAPTION: legenda associada ao conteúdo de figure. -->
+        <figcaption>
+          Exemplo de imagem acompanhada de legenda.
+        </figcaption>
+      </figure>
+
+      <!--
+        FORMATOS
+        JPEG, PNG e GIF são exemplos de imagens raster, por pixels.
+        SVG descreve gráficos vetoriais.
+
+        Redimensionar no HTML não reduz o tamanho do arquivo baixado.
+        Prepare arquivos adequados e preserve a proporção visual.
+
+        IMAGEM COMO LINK — exemplo para adaptar:
+
+        <a href="galeria.html">
+          <img src="imagens/galeria.png" alt="Abrir galeria">
+        </a>
+
+        Nesse caso, alt deve comunicar a função do link.
+      -->
+    </section>
+
+    <section id="midias">
+      <h2>07. Vídeos e áudios</h2>
+
+      <h3>Vídeo</h3>
+
+      <!--
+        VIDEO: incorpora vídeo.
+        controls: mostra os controles nativos.
+        width: largura do player.
+        poster: imagem apresentada antes da reprodução.
+        preload="metadata": sugere carregar apenas metadados.
+
+        SOURCE: fornece uma fonte e seu tipo.
+        Fontes alternativas precisam existir de verdade:
+        mudar a extensão não converte o arquivo.
+
+        Evite autoplay sem necessidade.
+        loop repete a reprodução.
+        muted inicia sem áudio.
+
+        O suporte depende também dos codecs do arquivo.
+      -->
+      <video
+        controls
+        width="480"
+        poster="imagens/capa-video.jpg"
+        preload="metadata"
+      >
+        <source src="videos/treinamento.mp4" type="video/mp4">
+
+        <!--
+          TRACK: faixa de texto sincronizado.
+          kind="captions": falas e sons relevantes.
+          srclang: idioma.
+          label: nome no menu.
+          default: faixa preferencial.
+          O arquivo .vtt deve conter legendas válidas.
+        -->
+        <track
+          src="legendas/treinamento-pt.vtt"
+          kind="captions"
+          srclang="pt-BR"
+          label="Português"
+          default
+        >
+
+        <!--
+          Conteúdo alternativo para navegadores sem suporte a video.
+          Não é uma mensagem garantida para todo erro de carregamento.
+        -->
+        <p>Seu navegador não oferece suporte ao elemento de vídeo.</p>
+      </video>
+
+      <!-- Um link externo ao player fica disponível independentemente dele. -->
+      <p><a href="videos/treinamento.mp4">Abrir arquivo de vídeo</a></p>
+
+      <h3>Áudio</h3>
+
+      <!--
+        AUDIO: incorpora áudio.
+        Não possui poster nem atributos HTML width e height.
+        Seu player pode ser estilizado com CSS.
+
+        controls: controles de reprodução.
+        preload="none": sugere não pré-carregar o áudio.
+      -->
+      <audio controls preload="none">
+        <source src="audios/apresentacao.mp3" type="audio/mpeg">
+        <p>Seu navegador não oferece suporte ao elemento de áudio.</p>
+      </audio>
+
+      <!-- Transcrição permite acessar o conteúdo sem ouvir o áudio. -->
+      <p>
+        Transcrição de exemplo:
+        “Este material apresenta os fundamentos do HTML.”
+      </p>
+
+      <!--
+        ACESSIBILIDADE
+        Imagens: alternativa textual apropriada.
+        Áudios: transcrição.
+        Vídeos: legendas e alternativas para informações visuais
+        relevantes, conforme o conteúdo.
+      -->
+    </section>
+
+    <section id="incorporacao">
+      <h2>08. Iframe, documentos externos e SVG</h2>
+
+      <!--
+        IFRAME: incorpora outro documento HTML.
+
+        Aqui usamos srcdoc para criar um exemplo independente.
+        Para conteúdo externo, use src com o endereço de incorporação
+        fornecido pelo serviço.
+
+        title: identifica o conteúdo para tecnologias assistivas.
+        sandbox: restringe capacidades do documento incorporado.
+        Permissões adicionais devem ser avaliadas conforme a necessidade.
+
+        Um endereço comum de vídeo não é necessariamente um endereço
+        válido para incorporação.
+        Alguns sites bloqueiam sua exibição em iframe.
+      -->
+      <iframe
+        title="Exemplo de documento incorporado"
+        srcdoc="<p>Este texto está dentro de um iframe.</p>"
+        sandbox
+        width="300"
+        height="100"
+      ></iframe>
+
+      <!--
+        OBJECT: incorpora um recurso externo e permite conteúdo alternativo.
+        Exemplo comentado para não depender de um PDF inexistente:
+
+        <object
+          data="documentos/resumo.pdf"
+          type="application/pdf"
+          width="600"
+          height="400"
+        >
+          <p>
+            <a href="documentos/resumo.pdf">Abrir documento PDF</a>
+          </p>
+        </object>
+
+        EMBED: elemento vazio para incorporar um recurso externo.
+
+        <embed
+          src="documentos/resumo.pdf"
+          type="application/pdf"
+          width="600"
+          height="400"
+        >
+
+        Flash e applets são tecnologias antigas:
+        não os utilize como solução para novos projetos.
+      -->
+
+      <h3>SVG incorporado no HTML</h3>
+
+      <!--
+        SVG não é uma tag de imagem raster.
+        É o elemento raiz de um gráfico vetorial em SVG.
+
+        viewBox: sistema de coordenadas do desenho.
+        role="img": apresenta o conjunto como imagem.
+        aria-labelledby: associa o gráfico ao título indicado.
+
+        RECT: retângulo.
+        CIRCLE: círculo.
+        fill: preenchimento da forma.
+      -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="240"
+        height="120"
+        viewBox="0 0 240 120"
+        role="img"
+        aria-labelledby="titulo-svg"
+      >
+        <!-- Este title pertence ao SVG, não ao head do documento. -->
+        <title id="titulo-svg">Retângulo azul e círculo laranja</title>
+
+        <rect x="10" y="10" width="100" height="100" fill="blue"></rect>
+        <circle cx="175" cy="60" r="45" fill="orange"></circle>
+      </svg>
+    </section>
+
+    <section id="tabelas">
+      <h2>09. Tabelas</h2>
+
+      <!--
+        TABLE: dados tabulares; não use para montar o layout da página.
+        CAPTION: título ou descrição da tabela.
+        THEAD: grupo de linhas do cabeçalho.
+        TBODY: grupo de linhas de dados.
+        TFOOT: grupo de linhas de resumo.
+        TR: linha.
+        TH: célula de cabeçalho.
+        TD: célula de dados.
+
+        scope="col": cabeçalho da coluna.
+        scope="row": cabeçalho da linha.
+
+        Aparência, cores e bordas devem ser definidas com CSS.
+      -->
+      <table>
+        <caption>Assuntos estudados</caption>
+
+        <thead>
+          <tr>
+            <th scope="col">Tecnologia</th>
+            <th scope="col">Finalidade</th>
+            <th scope="col">Exercícios</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">HTML</th>
+            <td>Estrutura</td>
+            <td>4</td>
+          </tr>
+
+          <tr>
+            <th scope="row">CSS</th>
+            <td>Aparência</td>
+            <td>3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">JavaScript</th>
+            <td>Interatividade</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <!-- colspan ocupa o espaço de duas colunas. -->
+            <th scope="row" colspan="2">Total de exercícios</th>
+            <td>10</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <h3>Mesclagem de células</h3>
+
+      <table>
+        <caption>Exemplo de agrupamento por unidade</caption>
+
+        <thead>
+          <tr>
+            <th scope="col">Unidade</th>
+            <th scope="col">Assunto</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <!-- rowspan ocupa o espaço de duas linhas. -->
+            <th scope="rowgroup" rowspan="2">Unidade 1</th>
+            <td>HTML</td>
+          </tr>
+          <tr>
+            <!-- Não repetimos a célula ocupada pelo rowspan. -->
+            <td>CSS</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="formularios">
+      <h2>10. Formulários</h2>
+
+      <p>
+        Demonstração para estudo. Nenhum dado é cadastrado
+        ou armazenado por este documento.
+      </p>
+
+      <!--
+        FORM: agrupa controles para preenchimento e envio de dados.
+
+        action: endereço que recebe os dados.
+        Sem action, o destino é o próprio documento.
+        Neste exemplo não existe endpoint de processamento.
+
+        method="get":
+        envia os dados na URL; adequado a consultas e buscas.
+        Não use GET para enviar senhas.
+
+        method="post":
+        envia os dados no corpo da requisição.
+        POST, por si só, não criptografa os dados: use HTTPS.
+
+        accept-charset="UTF-8":
+        codificação de envio.
+
+        autocomplete="on":
+        permite recursos de preenchimento automático.
+
+        Para upload real:
+        use method="post", um endpoint e
+        enctype="multipart/form-data".
+
+        Nunca use este exemplo para enviar dados pessoais reais.
+      -->
+      <form method="get" accept-charset="UTF-8" autocomplete="on">
+
+        <!-- FIELDSET: agrupa campos relacionados. -->
+        <fieldset>
+          <!-- LEGEND: título do grupo. -->
+          <legend>Dados de exemplo</legend>
+
+          <!--
+            LABEL: nome acessível do campo.
+            for deve corresponder ao id do controle.
+
+            INPUT: campo sem tag de fechamento.
+            type: tipo do controle.
+            id: identificação no documento.
+            name: chave usada no envio.
+            value: valor do controle.
+
+            placeholder: dica temporária; não substitui label.
+            required: preenchimento obrigatório.
+            maxlength: máximo de caracteres.
+          -->
+          <p>
+            <label for="nome">Nome fictício:</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Digite um nome de exemplo"
+              maxlength="80"
+              autocomplete="name"
+              required
+            >
+          </p>
+
+          <!--
+            EMAIL: verifica uma sintaxe de e-mail.
+            Não garante que o endereço exista.
+            Não exige especificamente a terminação .com.
+          -->
+          <p>
+            <label for="email">E-mail de exemplo:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="aluno@example.com"
+              autocomplete="email"
+              required
+            >
+          </p>
+
+          <!--
+            PASSWORD: oculta visualmente os caracteres.
+            Não criptografa nem protege sozinho o dado.
+
+            Este controle está desabilitado e não será enviado,
+            pois o formulário demonstrativo usa GET.
+          -->
+          <p>
+            <label for="senha">Senha — exemplo desativado:</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              minlength="8"
+              autocomplete="new-password"
+              disabled
+            >
+          </p>
+
+          <!-- NUMBER: número com limites e passo de variação. -->
+          <p>
+            <label for="quantidade">Quantidade:</label>
+            <input
+              type="number"
+              id="quantidade"
+              name="quantidade"
+              min="1"
+              max="20"
+              step="1"
+              value="1"
+            >
+          </p>
+
+          <!-- URL: campo para endereço web. -->
+          <p>
+            <label for="site">Site:</label>
+            <input
+              type="url"
+              id="site"
+              name="site"
+              placeholder="https://example.com"
+            >
+          </p>
+
+          <!-- SEARCH: campo voltado a termos de busca. -->
+          <p>
+            <label for="busca">Pesquisar assunto:</label>
+            <input type="search" id="busca" name="busca">
+          </p>
+
+          <!--
+            READONLY: não permite edição; o valor pode ser enviado.
+            DISABLED: desabilita o campo; o valor não é enviado.
+          -->
+          <p>
+            <label for="curso">Curso:</label>
+            <input
+              type="text"
+              id="curso"
+              name="curso"
+              value="Modern Web"
+              readonly
+            >
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Escolhas</legend>
+
+          <!--
+            RADIO: uma opção por grupo.
+            O mesmo name define o grupo.
+            value identifica a opção enviada.
+            Cada id continua sendo único.
+          -->
+          <p>Modalidade:</p>
+
+          <p>
+            <input
+              type="radio"
+              id="modalidade-online"
+              name="modalidade"
+              value="online"
+              checked
+            >
+            <label for="modalidade-online">Online</label>
+          </p>
+
+          <p>
+            <input
+              type="radio"
+              id="modalidade-presencial"
+              name="modalidade"
+              value="presencial"
+            >
+            <label for="modalidade-presencial">Presencial</label>
+          </p>
+
+          <!--
+            CHECKBOX: escolhas independentes.
+            Permite marcar mais de uma opção.
+            Controles não marcados normalmente não são enviados.
+          -->
+          <p>Assuntos de interesse:</p>
+
+          <p>
+            <input
+              type="checkbox"
+              id="interesse-html"
+              name="interesse"
+              value="html"
+            >
+            <label for="interesse-html">HTML</label>
+          </p>
+
+          <p>
+            <input
+              type="checkbox"
+              id="interesse-css"
+              name="interesse"
+              value="css"
+            >
+            <label for="interesse-css">CSS</label>
+          </p>
+
+          <!--
+            SELECT: seleção entre opções.
+            OPTION: opção disponível.
+            value: valor enviado.
+            selected: opção inicialmente selecionada.
+          -->
+          <p>
+            <label for="nivel">Nível:</label>
+            <select id="nivel" name="nivel">
+              <option value="" selected>Selecione</option>
+              <option value="iniciante">Iniciante</option>
+              <option value="intermediario">Intermediário</option>
+              <option value="avancado">Avançado</option>
+            </select>
+          </p>
+
+          <!--
+            DATALIST: sugestões para um input.
+            list do input corresponde ao id da datalist.
+            Em geral, o usuário também pode digitar outro valor.
+          -->
+          <p>
+            <label for="editor">Editor preferido:</label>
+            <input
+              type="text"
+              id="editor"
+              name="editor"
+              list="editores"
+            >
+          </p>
+
+          <datalist id="editores">
+            <option value="Visual Studio Code"></option>
+            <option value="Vim"></option>
+            <option value="Sublime Text"></option>
+          </datalist>
+        </fieldset>
+
+        <fieldset>
+          <legend>Datas, horários e outros controles</legend>
+
+          <!-- DATE: data sem horário. -->
+          <p>
+            <label for="data-estudo">Data do estudo:</label>
+            <input type="date" id="data-estudo" name="data-estudo">
+          </p>
+
+          <!-- TIME: horário sem data. -->
+          <p>
+            <label for="hora-estudo">Horário do estudo:</label>
+            <input type="time" id="hora-estudo" name="hora-estudo">
+          </p>
+
+          <!-- DATETIME-LOCAL: data e horário, sem fuso horário. -->
+          <p>
+            <label for="agendamento">Agendamento:</label>
+            <input
+              type="datetime-local"
+              id="agendamento"
+              name="agendamento"
+            >
+          </p>
+
+          <!-- MONTH: mês e ano. -->
+          <p>
+            <label for="mes">Mês:</label>
+            <input type="month" id="mes" name="mes">
+          </p>
+
+          <!-- WEEK: semana do ano. -->
+          <p>
+            <label for="semana">Semana:</label>
+            <input type="week" id="semana" name="semana">
+          </p>
+
+          <!--
+            RANGE: escolha numérica por controle deslizante.
+            Não mostra automaticamente o número selecionado em texto.
+          -->
+          <p>
+            <label for="satisfacao">Satisfação, de 0 a 10:</label>
+            <input
+              type="range"
+              id="satisfacao"
+              name="satisfacao"
+              min="0"
+              max="10"
+              step="1"
+              value="5"
+            >
+          </p>
+
+          <!-- COLOR: seleção de cor. -->
+          <p>
+            <label for="cor">Cor preferida:</label>
+            <input type="color" id="cor" name="cor" value="#3366cc">
+          </p>
+
+          <!--
+            FILE: seleção de arquivos do dispositivo.
+            accept: sugere tipos de arquivo.
+            multiple: permite selecionar vários.
+
+            accept não substitui validação no servidor.
+            Campo desativado: este formulário não implementa upload.
+          -->
+          <p>
+            <label for="arquivos">Upload — exemplo desativado:</label>
+            <input
+              type="file"
+              id="arquivos"
+              name="arquivos"
+              accept="image/*"
+              multiple
+              disabled
+            >
+          </p>
+
+          <!--
+            TEXTAREA: campo de texto em várias linhas.
+            Possui abertura e fechamento.
+            Texto inicial vai entre as tags, não em value.
+          -->
+          <p>
+            <label for="mensagem">Observações:</label><br>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows="5"
+              cols="35"
+              maxlength="500"
+              placeholder="Escreva uma observação de estudo."
+            ></textarea>
+          </p>
+        </fieldset>
+
+        <!--
+          BUTTON
+          type="submit": envia o formulário.
+          type="reset": restaura os valores iniciais.
+          type="button": não envia; usado em ações programadas.
+
+          Dentro de form, especifique o type para evitar envios
+          acidentais. Reset não significa necessariamente esvaziar
+          todos os campos: ele volta aos valores iniciais.
+        -->
+        <p>
+          <button type="submit">Testar envio com dados fictícios</button>
+          <button type="reset">Restaurar valores iniciais</button>
+          <button type="button">Botão sem ação programada</button>
+        </p>
+
+        <!--
+          Os slides também apresentam botões com input:
+
+          <input type="submit" value="Enviar">
+          <input type="reset" value="Restaurar">
+          <input type="button" value="Outra ação">
+
+          Em input, value define o texto do botão.
+          Em button, o conteúdo entre as tags define o texto.
+        -->
+      </form>
+
+      <!--
+        VALIDAÇÃO E SEGURANÇA
+        required, min, max e outros atributos ajudam no navegador.
+        Não substituem a validação no servidor.
+
+        HTML sozinho não cadastra usuários, autentica logins,
+        processa pagamentos ou armazena dados em banco.
+      -->
+    </section>
+
+    <section id="indicadores">
+      <h2>11. Progresso e medidas</h2>
+
+      <!--
+        PROGRESS: andamento de uma tarefa.
+        value: progresso atual.
+        max: total.
+        Sem value, representa progresso indeterminado.
+      -->
+      <p>
+        <label for="progresso">Progresso dos estudos:</label>
+        <progress id="progresso" value="30" max="100">30%</progress>
+      </p>
+
+      <!--
+        METER: medida dentro de um intervalo conhecido.
+        Não representa o andamento de uma tarefa.
+        min e max: limites.
+        low e high: faixas de referência.
+        optimum: valor considerado ideal.
+      -->
+      <p>
+        <label for="armazenamento">Armazenamento utilizado:</label>
+        <meter
+          id="armazenamento"
+          min="0"
+          max="100"
+          low="40"
+          high="80"
+          optimum="20"
+          value="60"
+        >
+          60%
+        </meter>
+      </p>
+    </section>
+
+    <section id="semantica">
+      <h2>12. Organização de uma página</h2>
+
+      <!--
+        ARTICLE: conteúdo independente, como notícia ou postagem.
+        Pode possuir seu próprio header e footer.
+      -->
+      <article>
+        <header>
+          <h3>Exemplo de postagem de estudos</h3>
+          <p>
+            Publicado em
+            <time datetime="2026-10-16">16 de outubro de 2026</time>.
+          </p>
+        </header>
+
+        <p>
+          Hoje revisei estrutura, textos, mídias, tabelas e formulários.
+        </p>
+
+        <footer>
+          <p><small>Categoria: estudos de HTML.</small></p>
+        </footer>
+      </article>
+
+      <!--
+        ASIDE: conteúdo complementar ao contexto.
+        Não significa obrigatoriamente "coluna à direita".
+        A posição visual é responsabilidade do CSS.
+      -->
+      <aside>
+        <h3>Dica de estudo</h3>
+        <p>Escolha uma seção e recrie os exemplos sem copiar.</p>
+      </aside>
+
+      <!--
+        MODELO DE ESTRUTURA
+        Esta representação é apenas um esquema comentado.
+        Não crie outro documento html dentro deste arquivo.
+
+        html
+          head
+            meta
+            title
+          body
+            header
+              h1
+              nav
+            main
+              section
+              article
+              aside
+            footer
+
+        Section não é sinônimo de qualquer caixa.
+        Div não é proibida: use quando o agrupamento for genérico.
+        Header e footer podem existir em diferentes contextos.
+      -->
+    </section>
+
+    <section id="revisao">
+      <h2>13. Revisão e boas práticas</h2>
+
+      <ul>
+        <li>Declare o idioma e a codificação do documento.</li>
+        <li>Organize títulos pela hierarquia do conteúdo.</li>
+        <li>Use tags conforme seu significado.</li>
+        <li>Feche e aninhe os elementos corretamente.</li>
+        <li>Não coloque div, listas ou seções dentro de um p.</li>
+        <li>Mantenha cada id único.</li>
+        <li>Use classes para agrupamentos reutilizáveis.</li>
+        <li>Ofereça alternativas textuais para mídias.</li>
+        <li>Associe labels aos campos.</li>
+        <li>Use tabelas para dados tabulares.</li>
+        <li>Separe HTML, CSS e JavaScript.</li>
+        <li>Teste links, caminhos e controles no navegador.</li>
+        <li>Não guarde senhas ou segredos em comentários.</li>
+      </ul>
+
+      <!--
+        COMENTÁRIOS NÃO SÃO SECRETOS
+        Eles não aparecem como conteúdo visual, mas continuam
+        disponíveis no código-fonte e no repositório.
+
+        INDENTAÇÃO
+        Ajuda a entender quais elementos estão dentro de outros.
+        A maioria dos espaços consecutivos é condensada na exibição
+        normal, mas pre preserva espaços e quebras.
+
+        TECNOLOGIAS ANTIGAS
+        Evite font, center e atributos de apresentação como bgcolor.
+        Use CSS para aparência.
+
+        PUBLICAÇÃO
+        Um arquivo HTML pode ser aberto localmente.
+        Para publicação, envie também os arquivos referenciados.
+        Hospedar HTML não cria automaticamente um backend.
+      -->
+
+      <p><a href="#inicio">Voltar ao início</a></p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: informações finais da página. -->
+  <footer>
+    <p>
+      <small>
+        &copy; Pedro Frutuoso — material de estudos de Modern Web.
+      </small>
+    </p>
+  </footer>
+
+</body>
+</html>
