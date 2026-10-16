@@ -1,0 +1,387 @@
+/* =========================================================
+   RESET BÁSICO
+   Remove margens, paddings e comportamentos padrão do navegador.
+   Isso ajuda o site a ficar mais parecido em diferentes navegadores.
+   ========================================================= */
+
+* {
+  margin: 0;              /* Remove a margem padrão de todos os elementos */
+  padding: 0;             /* Remove o espaçamento interno padrão */
+  box-sizing: border-box; /* Faz width e height incluírem padding e borda */
+}
+
+
+/* =========================================================
+   VARIÁVEIS CSS
+   Guardam valores reutilizáveis, como cores e espaçamentos.
+   São muito usadas em projetos profissionais.
+   ========================================================= */
+
+:root {
+  /* Cores do modo claro */
+  --cor-fundo-claro: #f4f6f8;       /* Fundo claro da página */
+  --cor-texto-claro: #222222;       /* Cor do texto no modo claro */
+  --cor-card-claro: #ffffff;        /* Fundo do cartão no modo claro */
+  --cor-borda-claro: #dddddd;       /* Cor das bordas no modo claro */
+
+  /* Cores principais */
+  --cor-primaria: #2c7be5;          /* Cor principal, como botões e links */
+  --cor-primaria-escura: #1b5fc1;   /* Cor usada no hover do botão */
+  --cor-sucesso: #28a745;           /* Verde, usado para sucesso */
+  --cor-erro: #dc3545;              /* Vermelho, usado para erros */
+  --cor-aviso: #ffc107;             /* Amarelo, usado para avisos */
+
+  /* Cores do modo escuro */
+  --cor-fundo-escuro: #121212;      /* Fundo escuro da página */
+  --cor-texto-escuro: #f4f4f4;      /* Texto claro no modo escuro */
+  --cor-card-escuro: #1e1e1e;       /* Fundo do cartão no modo escuro */
+  --cor-borda-escuro: #333333;      /* Borda no modo escuro */
+
+  /* Espaçamentos padrão */
+  --espaco-pequeno: 8px;            /* Espaçamento pequeno */
+  --espaco-medio: 16px;             /* Espaçamento médio */
+  --espaco-grande: 32px;            /* Espaçamento grande */
+
+  /* Arredondamento das bordas */
+  --raio-pequeno: 6px;              /* Bordas levemente arredondadas */
+  --raio-medio: 12px;               /* Bordas médias */
+  --raio-grande: 20px;              /* Bordas bem arredondadas */
+
+  /* Sombras */
+  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.1);       /* Sombra leve */
+  --sombra-forte: 0 8px 24px rgba(0, 0, 0, 0.2);       /* Sombra mais visível */
+}
+
+
+/* =========================================================
+   ESTILOS GERAIS DO BODY
+   ========================================================= */
+
+body {
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif; /* Fonte principal */
+  font-size: 16px;              /* Tamanho base do texto */
+  line-height: 1.6;             /* Espaço entre linhas, melhora a leitura */
+  color: var(--cor-texto-claro); /* Cor padrão do texto */
+  background-color: var(--cor-fundo-claro); /* Cor de fundo padrão */
+
+  min-height: 100vh;            /* Garante que o body ocupe a tela inteira */
+  display: flex;                /* Ativa o Flexbox */
+  align-items: center;          /* Centraliza verticalmente */
+  justify-content: center;      /* Centraliza horizontalmente */
+
+  transition: background-color 0.4s ease, color 0.4s ease; /* Anima a troca de tema */
+}
+
+
+/* =========================================================
+   TEMA CLARO
+   A classe é aplicada no <html> pelo JavaScript.
+   ========================================================= */
+
+.modo-claro {
+  background-color: var(--cor-fundo-claro); /* Fundo claro */
+  color: var(--cor-texto-claro);            /* Texto escuro */
+}
+
+
+/* =========================================================
+   TEMA ESCURO
+   Também é aplicado no <html> pelo JavaScript.
+   ========================================================= */
+
+.modo-escuro {
+  background-color: var(--cor-fundo-escuro); /* Fundo escuro */
+  color: var(--cor-texto-escuro);            /* Texto claro */
+}
+
+
+/* =========================================================
+   CONTAINER PRINCIPAL
+   É a "caixa" central que organiza o conteúdo.
+   ========================================================= */
+
+.container {
+  width: 90%;                    /* Ocupa 90% da largura disponível */
+  max-width: 600px;              /* Mas nunca passa de 600px */
+  padding: var(--espaco-grande); /* Espaço interno ao redor do conteúdo */
+  text-align: center;            /* Centraliza o texto */
+
+  background-color: var(--cor-card-claro); /* Fundo do cartão */
+  border: 1px solid var(--cor-borda-claro); /* Borda fina */
+  border-radius: var(--raio-grande);        /* Cantos arredondados */
+  box-shadow: var(--sombra-suave);          /* Sombra leve */
+
+  transition: background-color 0.4s ease, border-color 0.4s ease; /* Animação */
+}
+
+
+/* No modo escuro, o cartão recebe outras cores */
+.modo-escuro .container {
+  background-color: var(--cor-card-escuro);
+  border-color: var(--cor-borda-escuro);
+}
+
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+h1 {
+  font-size: 32px;              /* Tamanho grande para destaque */
+  font-weight: 700;             /* Negrito */
+  color: var(--cor-primaria);   /* Cor de destaque */
+  margin-bottom: var(--espaco-medio); /* Espaço abaixo do título */
+  letter-spacing: 1px;          /* Espaço entre as letras */
+}
+
+h2 {
+  font-size: 24px;              /* Tamanho menor que o h1 */
+  font-weight: 600;             /* Semi-negrito */
+  margin-bottom: var(--espaco-pequeno); /* Espaço abaixo */
+}
+
+h3 {
+  font-size: 20px;              /* Título de terceiro nível */
+  font-weight: 600;
+  margin-bottom: var(--espaco-pequeno);
+}
+
+
+/* =========================================================
+   PARÁGRAFOS E TEXTOS
+   ========================================================= */
+
+p {
+  margin-bottom: var(--espaco-medio); /* Espaço entre parágrafos */
+  color: inherit;                     /* Herda a cor do tema atual */
+}
+
+.texto-pequeno {
+  font-size: 14px;      /* Texto menor */
+  opacity: 0.8;         /* Deixa o texto mais suave */
+}
+
+.texto-destaque {
+  font-weight: bold;    /* Texto em negrito */
+  color: var(--cor-primaria); /* Cor de destaque */
+}
+
+
+/* =========================================================
+   RELÓGIO
+   ========================================================= */
+
+.relogio {
+  font-size: 72px;              /* Fonte bem grande */
+  font-weight: bold;            /* Negrito */
+  letter-spacing: 4px;          /* Espaço entre caracteres */
+  margin: var(--espaco-medio) 0; /* Espaço acima e abaixo */
+
+  color: var(--cor-primaria);   /* Cor principal */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Sombra no texto */
+}
+
+
+/* =========================================================
+   DATA
+   ========================================================= */
+
+.data {
+  font-size: 20px;              /* Tamanho médio */
+  margin-bottom: var(--espaco-grande); /* Espaço abaixo da data */
+  opacity: 0.8;                 /* Texto um pouco mais suave */
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.botao-tema {
+  display: inline-block;        /* Permite padding e centralização */
+  padding: 12px 24px;           /* Espaço interno do botão */
+  font-size: 18px;              /* Tamanho do texto */
+  font-weight: 600;             /* Texto semi-negrito */
+
+  color: #ffffff;               /* Texto branco */
+  background-color: var(--cor-primaria); /* Cor de fundo do botão */
+
+  border: none;                 /* Remove a borda padrão */
+  border-radius: 30px;          /* Botão totalmente arredondado */
+  cursor: pointer;              /* Mostra a mãozinha ao passar o mouse */
+
+  box-shadow: var(--sombra-suave); /* Sombra leve */
+  transition: transform 0.2s ease, background-color 0.3s ease; /* Animação */
+}
+
+
+/* Efeito quando o mouse passa sobre o botão */
+.botao-tema:hover {
+  background-color: var(--cor-primaria-escura); /* Escurece o botão */
+  transform: scale(1.05);                       /* Aumenta levemente */
+}
+
+
+/* Efeito quando o botão é clicado */
+.botao-tema:active {
+  transform: scale(0.97); /* Diminui levemente, dando sensação de clique */
+}
+
+
+/* Botão secundário, menos chamativo */
+.botao-secundario {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: var(--cor-texto-claro);
+  background-color: transparent; /* Fundo transparente */
+  border: 2px solid var(--cor-primaria); /* Borda colorida */
+  border-radius: var(--raio-medio);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.botao-secundario:hover {
+  background-color: var(--cor-primaria); /* Preenche no hover */
+  color: #ffffff;                        /* Texto branco */
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+  color: var(--cor-primaria);        /* Cor padrão dos links */
+  text-decoration: none;             /* Remove o sublinhado */
+  transition: color 0.3s ease;       /* Anima a mudança de cor */
+}
+
+a:hover {
+  color: var(--cor-primaria-escura); /* Escurece no hover */
+  text-decoration: underline;        /* Volta o sublinhado */
+}
+
+
+/* =========================================================
+   LISTAS
+   ========================================================= */
+
+ul,
+ol {
+  margin: 0 0 var(--espaco-medio) 24px; /* Espaço à esquerda dos itens */
+}
+
+li {
+  margin-bottom: var(--espaco-pequeno); /* Espaço entre itens */
+}
+
+
+/* =========================================================
+   CARTÕES
+   Muito usados para produtos, posts, serviços e dashboards.
+   ========================================================= */
+
+.card {
+  padding: var(--espaco-medio);              /* Espaço interno */
+  background-color: var(--cor-card-claro);   /* Fundo do cartão */
+  border: 1px solid var(--cor-borda-claro);  /* Borda */
+  border-radius: var(--raio-medio);          /* Cantos arredondados */
+  box-shadow: var(--sombra-suave);           /* Sombra */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação */
+}
+
+.card:hover {
+  transform: translateY(-4px);      /* Levanta o cartão */
+  box-shadow: var(--sombra-forte);  /* Aumenta a sombra */
+}
+
+
+/* =========================================================
+   FORMULÁRIOS
+   ========================================================= */
+
+input,
+textarea,
+select {
+  width: 100%;                 /* Ocupa toda a largura disponível */
+  padding: 12px;               /* Espaço interno */
+  font-size: 16px;             /* Tamanho do texto */
+  color: var(--cor-texto-claro); /* Cor do texto */
+
+  background-color: #ffffff;   /* Fundo branco */
+  border: 1px solid var(--cor-borda-claro); /* Borda */
+  border-radius: var(--raio-pequeno);       /* Cantos levemente arredondados */
+
+  outline: none;               /* Remove o contorno padrão */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Animação */
+}
+
+
+/* Quando o usuário clica no campo */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--cor-primaria);                 /* Borda azul */
+  box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.25);   /* Brilho azul */
+}
+
+
+/* =========================================================
+   IMAGENS
+   ========================================================= */
+
+img {
+  max-width: 100%;     /* Impede que a imagem ultrapasse o container */
+  height: auto;        /* Mantém a proporção da imagem */
+  display: block;      /* Facilita centralização e margens */
+  border-radius: var(--raio-medio); /* Cantos arredondados */
+}
+
+
+/* =========================================================
+   FLEXBOX
+   Usado para organizar elementos em linha ou coluna.
+   ========================================================= */
+
+.flex-linha {
+  display: flex;              /* Ativa o Flexbox */
+  gap: var(--espaco-medio);   /* Espaço entre os itens */
+  align-items: center;        /* Alinha verticalmente */
+  justify-content: center;    /* Centraliza horizontalmente */
+}
+
+.flex-coluna {
+  display: flex;              /* Ativa o Flexbox */
+  flex-direction: column;     /* Organiza os itens em coluna */
+  gap: var(--espaco-pequeno); /* Espaço entre os itens */
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   Ajusta o layout para telas menores, como celulares.
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .relogio {
+    font-size: 48px; /* Diminui o relógio em telas menores */
+  }
+
+  h1 {
+    font-size: 26px; /* Diminui o título */
+  }
+
+  .container {
+    padding: 24px; /* Reduz o espaçamento interno */
+  }
+}
+
+@media (max-width: 480px) {
+  .relogio {
+    font-size: 38px; /* Relógio ainda menor em celulares pequenos */
+  }
+
+  .botao-tema {
+    width: 100%; /* Botão ocupa toda a largura */
+  }
+}
